@@ -19,20 +19,22 @@
 ### 1.響應請求
 
 ### 2.數據交互
-HPPT-協議
 
-HPPT 1.0 RFC-1945
-HPPT 1.1 RFC-2616	持久連接
-HPPTS	 RFC-2888	安全協議
-HPPT 2.0 RFC-7450	加密、頭部壓縮、服務器推送、管線操作、多路實用
+	* #### HPPT-協議
+
+	* HPPT 1.0 RFC-1945
+	* HPPT 1.1 RFC-2616	持久連接
+	* HPPTS	 RFC-2888	安全協議
+	* HPPT 2.0 RFC-7450	加密、頭部壓縮、服務器推送、管線操作、多路實用
 
 #### HPPT封包結構
 
-herder
+	##### 結構
+	herder
 	訊息
 	<=32K
 
-body
+	body
 	數據
 	<=2G
 
