@@ -61,15 +61,99 @@
 
 ====================================
 
+#### 接收瀏覽器的get數據-url
 ```js
-//server_get2.js
-//接收瀏覽器的get數據
-//url模塊
-url.pares(req.url, true)=>{
-	pathname, query
-}
+
+	//server_get2.js
+	//url模塊
+	url.pares(req.url, true)=>{
+		pathname, query
+	}
+
+	GET=>"/aaa/b?xxx=xxx&xx=xx"
+	url.parse('xx');
+
 ```
+
+#### 接收瀏覽器的POST數據
+```js
+
+	post 會分多次發數據，因為post大，無法一次傳輸
+	接收瀏覽器的POST數據-body
+	分幾次，注意，傳送時不能因想省事而轉成字符串
+
+	let arr = [];
+	req.on('data', buffer=>{
+		arr.push(buffer)
+	});
+	req.on('end',()=>{
+		let buffer = Buffer.concat(arr);
+	});
+
+	POST=>"xxx=xxx&xx=xx"
+	querystring.parse('xx');
+
+```
+
 ====================================
 
-接收瀏覽器的POST數據
-post 會分多次發數據，因為post大，無法一次傳輸
+接口-API:
+用戶註冊、登入
+
+服務器:
+	1.請求文件->結果
+	2.請求接口->操作
+
+====================================
+
+註冊接口:
+/reg?user=xxx&password=xxx
+=>{error: 0, msg: '為什麼'}
+
+登入接口:
+/login?user=xxx&password=xxx
+=>{error: 1, msg: '為什麼'}
+
+
+====================================
+
+## 課堂總整理
+http原理
+fs.writeFile/readFile
+url.parse
+querystring.pares
+
+解析數據: GET、POST
+
+完整的服務器:
+	1.處理文件
+	2.出裡接口
+	3.儲存數據
+
+
+====================================
+
+模塊:
+	1.系統
+	2.第三方
+
+====================================
+
+Node.js 的模塊系統
+
+	1.定義模塊
+		CMD
+		AMD
+		ESM(ES6)
+
+		每一個文件就是一個模塊
+		module
+		exports
+		require
+
+	//mod1.js 輸出
+	```js
+	exports.a = 12;
+	exports.b = 5;
+	```
+

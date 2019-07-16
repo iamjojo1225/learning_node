@@ -3,10 +3,58 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport'content='width=device-width,initial-scale=1,shrink-to-fit=no">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="jquery.min.js"></script>
 	<title>文檔標題</title>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#btn1').click(()=>{
+
+				$.ajax({
+					url: '/reg',
+					data: {
+						username: $('#user').val(),
+						password: $('#pass').val()
+					},
+					dataType: 'json'
+				}).then(json=>{
+					if(json.error){
+						alert(json.msg);
+					}else{
+						alert('註冊成功!')
+					}
+				}, err=>{
+					alert('註冊失敗，請刷新重試');
+				})
+			})
+
+			$('#btn2').click(()=>{
+				$.ajax({
+					url: '/login',
+					data: {
+						username: $('#user').val(),
+						password: $('#pass').val()
+					},
+					dataType: 'json'
+				}).then(json=>{
+					if(json.error !=0){
+						alert(json.msg);
+					}else{
+						alert('登入成功!')
+					}
+				}, err=>{
+					alert('登入失敗，請刷新重試');
+				})
+			})
+
+		});
+	</script>
 </head>
 <body>
+	帳號: <input type="text" id="user"><br>
+	密碼: <input type="password" id="pass"><br>
+	<input type="button" value="註冊" id="btn1">
+	<input type="button" value="登入" id="btn2">
+
 	<p>進入1.htnl</p>
 	<img src="1.jpg">
 </body>
