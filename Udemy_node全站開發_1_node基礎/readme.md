@@ -147,9 +147,15 @@ Node.js 的模塊系統
 		ESM(ES6)
 
 		每一個文件就是一個模塊
-		module
+		module	 批量導出
 		exports
 		require
+
+		require:
+		1.如果帶有路徑-去路徑下面去找 EX: './mod1'
+		2.如果沒有:
+			node_modules文件夾 EX: 'mod1'
+			系統node_modules
 
 	//mod1.js 輸出
 	```js
