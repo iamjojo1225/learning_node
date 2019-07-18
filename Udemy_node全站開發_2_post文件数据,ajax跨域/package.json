@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "",
+  "version": "",
+  "description": "-----------------------------\r # node全站開發 2\r -----------------------------",
+  "devDependencies": {
+    "multiparty": "^4.2.1"
+  }
+}

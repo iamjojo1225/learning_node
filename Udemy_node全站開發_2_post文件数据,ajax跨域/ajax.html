@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport'content='width=device-width,initial-scale=1,shrink-to-fit=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			let oBtn = document.getElementById('btn1');
+
+			oBtn.onclick = function(){
+				let ajax = new XMLHttpRequest();
+
+				/*
+				* 第三個參數 boolen 同步/異步 false/true
+				*/
+
+				ajax.open('GET', 'http://localhost:5050/a', true);
+				ajax.send();
+
+				ajax.onreadystatechange = function(){
+					//readyState:0-4   1:已連接 2:已發送 3:接收-響應的頭 4:接收-響應的資料
+					if(ajax.readyState == 4){
+						if(ajax.status >= 200 && ajax.status < 300 || ajax.status == 304 ){
+							alert('成功');
+							console.log(JSON.parse(ajax.responseText));
+							// alert(ajax.responseText);
+						}else{
+							alert('失敗');
+						}
+					}
+				}
+			}
+		});
+	</script>
+	<title>文檔標題</title>
+</head>
+<body>
+
+	<input type="button" value="請求" id="btn1">
+
+</body>
+</html>
