@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport'content='width=device-width,initial-scale=1,shrink-to-fit=no">
+	<title>文檔標題</title>
+	<script>
+		let ws = new WebSocket('ws://localhost:5050/');
+
+		ws.onopen = function(){
+			alert('連接建立');
+		};
+		ws.onmessage = function(){};
+		ws.onclose = function(){};
+		ws.onerror = function(){};
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

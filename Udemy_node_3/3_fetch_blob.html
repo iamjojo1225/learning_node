@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport'content='width=device-width,initial-scale=1,shrink-to-fit=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<title>文檔標題</title>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			window.onload = function(){
+				let oImg = document.getElementById('img1');
+				let oBtn = document.getElementById('btn1');
+				oBtn.onclick = async function(){
+					//開啟網址 記得切換成http://localhost/learning_node/Udemy_node_3/fetch.html 有網域的，不能是資料路徑不然fecth無法使用
+					//1.清求
+					let res = await fetch('data/1.png');
+					//2.解析
+					// console.log(res)
+					let data = await res.blob()
+					//1將二進制數據，寫入臨時的CHROME裡面
+					let url = URL.createObjectURL(data);
+
+					oImg.src = url;
+				};
+			}
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="讀取" id="btn1">
+	<img id="img1">
+</body>
+</html>

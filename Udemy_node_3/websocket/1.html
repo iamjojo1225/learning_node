@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport'content='width=device-width,initial-scale=1,shrink-to-fit=no">
+	<script src="http://localhost:5050/socket.io/socket.io.js"></script>
+	<script>
+		let sock = io.connect('ws://localhost:5050/');
+
+		//sock.emit()
+		//sock.on()
+
+		// sock.emit('aaa', 12, 5);
+		sock.on('timer', (data)=>{
+			console.log(data);
+		})
+
+
+
+
+	</script>
+	<title>文檔標題</title>
+</head>
+<body>
+</body>
+</html>
