@@ -1,0 +1,15 @@
+{
+  "name": "Udemy_node_4_dataBase",
+  "version": "1.0.0",
+  "description": "-----------------------------\r # node全站開發 第四課 資料庫\r -----------------------------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mysql": "^2.17.1"
+  }
+}

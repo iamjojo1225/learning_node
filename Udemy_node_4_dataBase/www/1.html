@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport'content='width=device-width,initial-scale=1,shrink-to-fit=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<title>文檔標題</title>
+</head>
+	<body>
+		用戶:<input type="text" id="user"><br>
+		密碼:<input type="password" id="pass"><br>
+		<input type="button" id="reg" value="註冊">
+	</body>
+
+	<script>
+
+		$('#reg').click(async ()=>{
+			let data = await $.ajax({
+				url: 'http://localhost:5050/reg',
+				type: 'GET',
+				data: {
+					username: $('#user').val(),
+					password: $('#pass').val()
+			    },
+			})
+			.done(function() {
+				console.log("success");
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+
+			alert(data);
+		})
+	</script>
+
+
+</html>
