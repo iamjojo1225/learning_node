@@ -89,3 +89,7 @@ phpmyadmin、wamp
 
 ## Node.js 操作資料庫
 
+1.mysql 模塊
+2.連接池
+ createPool
+3.異不操作

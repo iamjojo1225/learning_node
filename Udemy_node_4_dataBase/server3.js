@@ -3,8 +3,13 @@ const mysql = require('mysql');
 const url = require('url');
 const fs = require('fs');
 
+
 //1.連接到服務器
-let db = mysql.createConnection({host: 'localhost', user: 'root', password: 'root', database:'20181101'});
+let db = mysql.createPool({
+	//connectionLimit 預設10
+	connectionLimit: 10,
+	host: 'localhost', user: 'root', password: 'root', database:'20181101'
+});
 
 
 //2.與http配合
