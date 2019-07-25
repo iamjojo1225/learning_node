@@ -10,6 +10,7 @@
 		用戶:<input type="text" id="user"><br>
 		密碼:<input type="password" id="pass"><br>
 		<input type="button" id="reg" value="註冊">
+		<input type="button" id="login" value="登入">
 	</body>
 
 	<script>
@@ -23,16 +24,18 @@
 					password: $('#pass').val()
 			    },
 			})
-			.done(function() {
-				console.log("success");
-			})
-			.fail(function() {
-				console.log("error");
-			})
-			.always(function() {
-				console.log("complete");
-			});
+			alert(data);
+		})
 
+		$('#login').click(async ()=>{
+			let data = await $.ajax({
+				url: 'http://localhost:5050/login',
+				type: 'GET',
+				data: {
+					username: $('#user').val(),
+					password: $('#pass').val()
+			    },
+			})
 			alert(data);
 		})
 	</script>

@@ -91,5 +91,20 @@ phpmyadmin、wamp
 
 1.mysql 模塊
 2.連接池
- createPool
-3.異不操作
+ 	createPool
+3.異步操作
+	co-musql: 本身是一個包裝器，可以把mysql變成一個異步的東西，可使用async await。
+
+------
+
+## 補充
+
+```js
+await 數據
+await fn()
+await promise //主要常用
+await fn(){
+	return promise
+}
+await async ()=>{}
+```

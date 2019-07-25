@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "mysql": "^2.17.1"
+  },
+  "dependencies": {
+    "co-mysql": "^1.0.0"
   }
 }
