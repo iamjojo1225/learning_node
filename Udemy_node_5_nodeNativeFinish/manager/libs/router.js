@@ -5,6 +5,7 @@ function addRouter(method, url, fn){
   method=method.toLowerCase();
   url=url.toLowerCase();
 
+  //如果有就用，沒有就新建一個
   router[method]=router[method]||{};
   router[method][url]=fn;
 }

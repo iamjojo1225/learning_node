@@ -55,3 +55,40 @@ res.setHeader('content-encoding', 'gzip')
 1.合再一塊用
 2.router
 
+------
+
+## process模組
+取得電腦很多的相關資料
+
+------
+
+## 資料庫注入式攻擊
+
+>encodeURIComponent() 轉義除了字母、數字、(、)、.、!、~、*、'、-和_之外的所有字符。
+
+INSERT INTO item_table (title, price, count) VALUES(title,price,count)
+假如在 VALUES('${title}', ${price}, ${count}) 這段，添加代碼 「 'a'); DELETE FORM item_table; SELECT (1' 」，
+利用encodeURIComponent 轉碼 encodeURIComponent('a')ㄤ DELETE FORM item_table; SELECT (1')
+得出 a')%3B%20DELETE%20FORM%20item_table%3B%20SELECT%20(1
+
+INSERT INTO item_table (title, price, count) VALUES('a'); DELETE FORM item_table; SELECT (1,price,count)
+就會變成是注入式攻擊，會刪除資料表。
+
+------
+
+##圖解流
+
+|--|--|HTTP→|--|--|
+|--|--|--|--|--|
+|...|...|body2|body1|header|
+|...|...|3|2|1|
+
+------
+
+##數據庫回滾
+>回滾是甚麼: 要馬都完成，要馬都不完成，防止數據突然斷電造成的錯誤。
+```js
+db.query('start transaction();')
+db.query('SELECT (); UPDATE();')
+db.query('commit(;)')
+```

@@ -8,12 +8,13 @@ const {Form}=require('multiparty');
 const {HTTP_PORT, HTTP_ROOT, HTTP_UPLOAD}=require('../config');
 
 http.createServer((req, res)=>{
+  //2.找路由
   res.writeJson=function (json){
     res.setHeader('content-type', 'application/json');
     res.write(JSON.stringify(json));
   };
 
-  //1.解析数据——GET、POST、FILE
+  //1.解析數據-GET、POST、FILE
   let {pathname, query}=url.parse(req.url, true);
 
   if(req.method=='POST'){
