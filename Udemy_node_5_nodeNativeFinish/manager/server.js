@@ -27,7 +27,7 @@ addRouter('post', '/add', async (res, get, post, files)=>{
       res.end();
     }else{
       try{
-        //防注入式攻擊，「?」式佔位符，由第二個參數帶入。 
+        //防注入式攻擊，「?」為佔位符，由第二個參數帶入。 
         await db.query('INSERT INTO item_table (title, price, count) VALUES(?,?,?)', [title, price, count]);
 
         res.writeJson({error: 0, msg: 'success'});
@@ -38,6 +38,7 @@ addRouter('post', '/add', async (res, get, post, files)=>{
     }
   }
 });
-addRouter('get', '/del', async (res, get, post, files)=>{
-
+addRouter('post', '/test', async (res, get, post, files)=>{
+  let {item1, iten2} = post;
+  
 });

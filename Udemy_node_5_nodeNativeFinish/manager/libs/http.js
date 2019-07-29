@@ -18,6 +18,7 @@ http.createServer((req, res)=>{
   let {pathname, query}=url.parse(req.url, true);
 
   if(req.method=='POST'){
+    //該startsWith()方法確定字符串是否以指定字符串的字符開頭。
     if(req.headers['content-type'].startsWith('application/x-www-form-urlencoded')){
       //普通POST
       let arr=[];
@@ -56,6 +57,7 @@ http.createServer((req, res)=>{
       });
     }
   }else{
+    //GET 
     //2.找路由
     handle(req.method, pathname, query, {}, {});
   }
@@ -63,8 +65,8 @@ http.createServer((req, res)=>{
 
 
   //2.找路由
-  async function handle(method, url, get, post, files){
-    let fn=router.findRouter(method, url);
+  async function handle(method, url, get, post, files) {
+    let fn = router.findRouter(method, url);
 
     if(!fn){
       //文件
@@ -86,8 +88,9 @@ http.createServer((req, res)=>{
       });
     }else{
       //接口
-      try{
+      try {
         await fn(res, get, post, files);
+        console.log('fn', fn);
       }catch(e){
         console.log('a');
         res.writeHeader(500);

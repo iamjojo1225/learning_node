@@ -10,6 +10,11 @@ function addRouter(method, url, fn){
   router[method][url]=fn;
 }
 
+/**
+ * 
+ * @param {string} method  POST、GET
+ * @param {string} url 路由
+ */
 function findRouter(method, url){
   method=method.toLowerCase();
   url=url.toLowerCase();
